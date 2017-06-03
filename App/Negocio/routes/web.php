@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('ficha_epicrisis');
+    return view('recepcion_pacientes');
 });
