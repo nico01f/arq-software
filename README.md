@@ -8,10 +8,7 @@
     | - App -> Donde va todo lo concerniente al **Código**
     | - Docs -> Donde va todo lo concerniente a la **Documentación**
     | - Others -> Lo que no calza en los otros dirs.
-    
 
-Si alguien no sabe git, que diga para que le enseñemos cómo y no tengamos 
+
+Si alguien no sabe git, que diga para que le enseñemos cómo y no tengamos
 --merge conflicts--
-
-
-
