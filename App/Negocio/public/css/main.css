@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300i,400,400i,500,500i');
+
+body{
+  background: rgba(240, 240, 240, 0.7);
+  font-family: 'Roboto', sans-serif;
+}
+.labels{
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.row{
+  margin: 15px 0 ;
+}
+.client-data, .derivacion , .search{
+  /*display: none;*/
+  padding: 0 2em;
+  margin: 1em;
+}
+.btn-submit{
+  font-weight: 300;
+  margin: 40px 40%;
+  width: 200px;
+  line-height: 35px;
+  border: none;
+  border-radius: 2px;
+  opacity: 0.95;
+	border-radius: 20px;
+	background-color: #3ca2ff;
+	box-shadow: 0 2px 4px 0 rgba(60, 162, 255, 0.35);
+  color: #fff;
+
+}
+.form-control{
+  width: 90%;
+}
+
+.title{
+  font-size: 2em;
+}
