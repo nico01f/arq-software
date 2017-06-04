@@ -3,6 +3,7 @@
   <title>Gestion epicrisis - @yield('title')</title>
   <link rel="stylesheet" href="{{asset('/css/app.css')}}">
   <link rel="stylesheet" href="{{asset('/css/main.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
 
@@ -46,7 +47,9 @@
   </div>
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+  <script src="{{asset('/js/moment.js')}}"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
   <script src="{{asset('/js/app.js')}}"></script>
   <script src="{{asset('/js/main.js')}}"></script>
   <script src="{{asset('/js/bootstrap-typeahead.js')}}"></script>
