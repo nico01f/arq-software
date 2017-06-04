@@ -12,9 +12,8 @@
             <form class="" autocomplete="off" >
                 <div class="form-group search">
                     <div class="row">
-                        <h4 class="titles">Buscar paciente</h4>
+                        <h4 class="titles space">Buscar paciente</h4>
                         <div class="col-md-4" >
-
                             <div class="input-group">
                                 <input class="form-control typeahead" type="text" name="buscar" value="">
                                 <span class="input-group-addon">
@@ -33,9 +32,8 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="labels" for="">Rut</div>
-
                             <div class="input-group">
-                                <input class="form-control" type="text" name="rut_paciente" value="">
+                                <input class="form-control" type="text" id="rut_paciente" value="">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
@@ -43,7 +41,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="labels" for="">Sexo</div>
-                            <select class="form-control" name="sexo">
+                            <select class="form-control" id="sexo">
                                 <option value="f">Femenino</option>
                                 <option value="m">Masculino</option>
                             </select>
@@ -51,7 +49,7 @@
                         <div class="col-md-3">
                             <div class="labels" for="">Fecha Nacimiento</div>
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' name="fecha_nacimiento" class="form-control" />
+                                <input type='text' id="fecha_nacimiento" class="form-control" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -59,7 +57,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="labels" for="">Prevision</div>
-                            <select class="form-control" name="sexo">
+                            <select class="form-control" id="prevision">
                                 <option value="isapre">Isapre</option>
                                 <option value="fonasa">Fonasa</option>
                             </select>
@@ -68,19 +66,18 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="labels" for="">Nombres</div>
+                            <div class="labels" for="">Nombre</div>
                             <div class="input-group">
-                                <input class="form-control" type="text" name="nombre_paciente" value="">
+                                <input class="form-control" type="text" id="nombre_paciente" value="">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
                             </div>
-
                         </div>
                         <div class="col-md-6">
                             <div class="labels" for="">Apellidos</div>
                             <div class="input-group">
-                                <input class="form-control" type="text" name="apellidos_paciente" value="">
+                                <input class="form-control" type="text" id="apellidos_paciente" value="">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
@@ -89,8 +86,9 @@
                     </div>
                 </div>
             </div>
-            <hr>
+
             <div class="derivacion">
+                <hr>
                 <h4 class="titles">Derivacion</h4>
                 <div class="row">
                     <div class="col-md-6">
@@ -112,11 +110,12 @@
                             <option value="">Barney diaz</option>
                         </select>
                     </div>
+                    <button class="btn-submit pull-center" role="submit">Guardar</button>
                 </div>
             </div>
-            <button class="btn-submit pull-center" role="submit">Guardar</button>
 
-            </div>
+
         </div>
     </div>
+</div>
 @endsection
