@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('recepcion_pacientes');
 });
+
+Route::get('/ficha_epicrisis' , function(){
+  return view('ficha_epicrisis');
+});
