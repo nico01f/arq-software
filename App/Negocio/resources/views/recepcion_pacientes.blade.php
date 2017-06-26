@@ -11,20 +11,22 @@
 
             <form class="" autocomplete="off" >
                 <div class="form-group search">
+                    <h4 class="titles space">Buscar paciente</h4>
                     <div class="row">
-                        <h4 class="titles space">Buscar paciente</h4>
                         <div class="col-md-4" >
                             <div class="input-group">
                                 <input class="form-control typeahead" type="text" name="buscar" value="">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-search"></span>
+                                    <span onclick="$('.client-data').show('fade');$('.derivacion').show('fade');" class="glyphicon glyphicon-plus"></span>
                                 </span>
                             </div>
                         </div>
+
                         <br>
                     </div>
                 </div>
             </form>
+
             <hr>
             <div class="client-data">
                 <h4 class="titles">Datos paciente</h4>
@@ -42,8 +44,8 @@
                         <div class="col-md-3">
                             <div class="labels" for="">Sexo</div>
                             <select class="form-control" id="sexo">
-                                <option value="f">Femenino</option>
-                                <option value="m">Masculino</option>
+                                <option value="F">Femenino</option>
+                                <option value="M">Masculino</option>
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -93,21 +95,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="labels" for="">Area</div>
-                        <select class="form-control" name="">
+                        <select class="form-control" id="AreaList" name="">
                             <option value="">Seleccione area </option>
                             <option value="">Kinesiologia</option>
                             <option value="">Cardiologia</option>
-
                         </select>
                     </div>
                     <div class="col-md-6">
                         <div class="labels" for="">Medico</div>
-                        <select class="form-control" name="">
-                            <option value="">Seleccione  medico</option>
-                            <option value="">Claudio perez</option>
-                            <option value="">Ximena pereira</option>
-                            <option value="">Yasuri yamile</option>
-                            <option value="">Barney diaz</option>
+                        <select class="form-control" id="FuncList" name="">
+                            <option value="">Seleccione  medico</option>                        
                         </select>
                     </div>
                     <button class="btn-submit pull-center" role="submit">Guardar</button>
