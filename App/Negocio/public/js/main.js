@@ -1,7 +1,7 @@
 $(document).ready(function(){
-
+  var base_url  = "http://190.8.110.120/";
   var $search = $(".typeahead");
-  $.get('http://190.8.110.120/Epicrisis/JsonPaciente',{}, function(pacientes){
+  $.get(base_url + 'Epicrisis/JsonPaciente',{}, function(pacientes){
     $search.typeahead({
       source:  pacientes ,
       autoSelect: true,
@@ -9,7 +9,7 @@ $(document).ready(function(){
     });
   })
 
-  $.getJSON('http://190.8.110.120/Epicrisis/JsonArea',{}, function(areas){
+  $.getJSON(base_url + 'Epicrisis/JsonArea',{}, function(areas){
     $("#AreaList option").remove();
     $("#AreaList").append( $("<option></option>").text("Seleccione un area..").val(-1));
     for (var item of areas) {
@@ -24,7 +24,7 @@ $(document).ready(function(){
   $("#AreaList").change(function(e){
     console.log($(this).val());
 
-    $.getJSON('http://190.8.110.120/Epicrisis/JsonFuncionario?area_id='+$(this).val(),{}, function(funcionarios){
+    $.getJSON(base_url + 'Epicrisis/JsonFuncionario?area_id='+$(this).val(),{}, function(funcionarios){
       $("#FuncList option").remove();
       if (funcionarios.length == 0) {
         $("#FuncList").append(

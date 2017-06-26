@@ -3,11 +3,11 @@
 @section('title', 'Recepcion Pacientes')
 
 @section('content')
-    <div class="panel panel-primary">
-        <div class="panel-heading">
+    <div class="x_panel">
+        <div class="x_title">
             <h3>Recepcion pacientes</h3>
         </div>
-        <div class="panel-body">
+        <div class="x_content">
 
             <form class="" autocomplete="off" >
                 <div class="form-group search">
@@ -104,7 +104,7 @@
                     <div class="col-md-6">
                         <div class="labels" for="">Medico</div>
                         <select class="form-control" id="FuncList" name="">
-                            <option value="">Seleccione  medico</option>                        
+                            <option value="">Seleccione  medico</option>
                         </select>
                     </div>
                     <button class="btn-submit pull-center" role="submit">Guardar</button>
