@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/ficha_epicrisis' , function(){
   return view('ficha_epicrisis');
 });
+
+Route::get('/login' , function(){
+  return view('login');
+});

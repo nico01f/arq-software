@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $('#rut_paciente').rut();
   var base_url  = "http://190.8.110.120/";
   var $search = $(".typeahead");
   $.get(base_url + 'Epicrisis/JsonPaciente',{}, function(pacientes){
@@ -41,25 +42,28 @@ $(document).ready(function(){
         }
       }
     })
-  })
+  });
 
 
 
   $search.change(function(e) {
     e.preventDefault();
     var current = $search.typeahead("getActive");
+
     if (current) {
       console.log(current.id);
       // Some item from your model is active!
       if (current.name == $search.val()) {
         $('.client-data').show('fade');
         $('.derivacion').show('fade');
-
-        $('#rut_paciente').val(current.rut);
+        let new_rut = $.formatRut(current.rut);
+         $('#rut_paciente').val(new_rut);
         $('#sexo').val(current.sexo);
         $('#fecha_nacimiento').val(current.fec_nac);
         $('#nombre_paciente').val(current.name_2);
         $('#apellidos_paciente').val(current.apellido_p + current.apellido_m);
+
+
         // $('#nombre').val();
         // $('').val();
         // $('').val();
@@ -75,4 +79,4 @@ $(document).ready(function(){
     }
   });
 
-})
+});

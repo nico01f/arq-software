@@ -35,7 +35,7 @@
                         <div class="col-md-3">
                             <div class="labels" for="">Rut</div>
                             <div class="input-group">
-                                <input class="form-control" type="text" id="rut_paciente" value="">
+                                <input class="form-control" type="text"  id="rut_paciente" value="">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
