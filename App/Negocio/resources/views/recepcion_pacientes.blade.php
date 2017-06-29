@@ -21,7 +21,6 @@
                                 </span>
                             </div>
                         </div>
-
                         <br>
                     </div>
                 </div>
@@ -41,6 +40,7 @@
                                 </span>
                             </div>
                         </div>
+                        <input type="hidden" id="paciente_id" name="" value="null">
                         <div class="col-md-3">
                             <div class="labels" for="">Sexo</div>
                             <select class="form-control" id="sexo">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="labels" for="">Fecha Nacimiento</div>
-                            <div class='input-group date' id='datetimepicker1'>
+                            <div class='input-group date' >
                                 <input type='text' id="fecha_nacimiento" class="form-control" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
@@ -80,11 +80,16 @@
                             <div class="labels" for="">Apellidos</div>
                             <div class="input-group">
                                 <input class="form-control" type="text" id="apellidos_paciente" value="">
+                                <input type="hidden" id="ape_p" value="">
+                                <input type="hidden" id="ape_m" value="">
+
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -101,13 +106,7 @@
                             <option value="">Cardiologia</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
-                        <div class="labels" for="">Medico</div>
-                        <select class="form-control" id="FuncList" name="">
-                            <option value="">Seleccione  medico</option>
-                        </select>
-                    </div>
-                    <button class="btn-submit pull-center" role="submit">Guardar</button>
+                    <button class="btn-submit pull-center" id="submit-btn" role="button">Guardar</button>
                 </div>
             </div>
 
