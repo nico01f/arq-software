@@ -40,6 +40,7 @@
                                 </span>
                             </div>
                         </div>
+                        <input type="hidden" id="paciente_id" name="" value="null">
                         <div class="col-md-3">
                             <div class="labels" for="">Sexo</div>
                             <select class="form-control" id="sexo">
@@ -87,6 +88,8 @@
                                 </span>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>

@@ -26,8 +26,6 @@ $(document).ready(function(){
 
     var rut =  $('#rut_paciente').val();
     rut = rut.replace('.','');
-    rut = rut.replace('.','');
-
     var sexo =  $('#sexo').val();
     var fecha_nacimiento =  $('#fecha_nacimiento').val();
     var nombre_paciente =  $('#nombre_paciente').val();
@@ -36,7 +34,7 @@ $(document).ready(function(){
     var prevision = $('#prevision').val();
     var area = $('#AreaList').val();
 
-    // console.log(rut,sexo,fecha_nacimiento,nombre_paciente,apellido_m,apellido_p,area);
+    console.log(rut,sexo,fecha_nacimiento,nombre_paciente,apellido_m,apellido_p,area);
 
     $.post(base_url + 'Epicrisis/CreatePaciente',{
       rut : rut ,
@@ -46,8 +44,9 @@ $(document).ready(function(){
       apellido_paterno : apellido_p,
       apellido_materno : apellido_m,
       area : area,
-      prevision : prevision,
-      _csrf : $('meta[name="csrf-token"]').attr("content")
+      prevision : 1,
+      paciente_id: $('#paciente_id').val(),
+      _csrf :  $('meta[name="csrf-token"]').attr("content")
     }, function(response){
       console.log("RESPONSE" , response)
     });
@@ -65,7 +64,8 @@ $(document).ready(function(){
         $('.client-data').show('fade');
         $('.derivacion').show('fade');
         let new_rut = $.formatRut(current.rut);
-         $('#rut_paciente').val(new_rut);
+        $('#paciente_id').val(current.id);
+        $('#rut_paciente').val(new_rut);
         $('#sexo').val(current.sexo);
         $('#fecha_nacimiento').val(current.fec_nac);
         $('#nombre_paciente').val(current.name_2);
