@@ -20,31 +20,39 @@ $(document).ready(function(){
         .val(item.id)
       );
     }
-  })
-
-  $("#AreaList").change(function(e){
-    console.log($(this).val());
-
-    $.getJSON(base_url + 'Epicrisis/JsonFuncionario?area_id='+$(this).val(),{}, function(funcionarios){
-      $("#FuncList option").remove();
-      if (funcionarios.length == 0) {
-        $("#FuncList").append(
-          $("<option></option>")
-          .text("No se encontraron funcionarios.")
-        )
-      }else{
-        for (var item of funcionarios) {
-          $("#FuncList").append(
-            $("<option></option>")
-            .text(item.nombre+" "+item.apellido_p)
-            .val(item.id)
-          );
-        }
-      }
-    })
   });
 
+  $('#submit-btn').click(function(e){
 
+    var rut =  $('#rut_paciente').val();
+    rut = rut.replace('.','');
+    rut = rut.replace('.','');
+
+    var sexo =  $('#sexo').val();
+    var fecha_nacimiento =  $('#fecha_nacimiento').val();
+    var nombre_paciente =  $('#nombre_paciente').val();
+    var apellido_p  = $('#ape_p').val();
+    var apellido_m = $('#ape_m').val();
+    var prevision = $('#prevision').val();
+    var area = $('#AreaList').val();
+
+    // console.log(rut,sexo,fecha_nacimiento,nombre_paciente,apellido_m,apellido_p,area);
+
+    $.post(base_url + 'Epicrisis/CreatePaciente',{
+      rut : rut ,
+      sexo : sexo,
+      fecha_nacimiento : fecha_nacimiento,
+      nombre : nombre_paciente,
+      apellido_paterno : apellido_p,
+      apellido_materno : apellido_m,
+      area : area,
+      prevision : prevision,
+      _csrf : $('meta[name="csrf-token"]').attr("content")
+    }, function(response){
+      console.log("RESPONSE" , response)
+    });
+
+  })
 
   $search.change(function(e) {
     e.preventDefault();
@@ -62,11 +70,9 @@ $(document).ready(function(){
         $('#fecha_nacimiento').val(current.fec_nac);
         $('#nombre_paciente').val(current.name_2);
         $('#apellidos_paciente').val(current.apellido_p + current.apellido_m);
+        $('#ape_p').val(current.apellido_p);
+        $('#ape_m').val(current.apellido_m);
 
-
-        // $('#nombre').val();
-        // $('').val();
-        // $('').val();
 
 
         // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
