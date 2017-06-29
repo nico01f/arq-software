@@ -22,3 +22,7 @@ Route::get('/ficha_epicrisis' , function(){
 Route::get('/login' , function(){
   return view('login');
 });
+
+Route::get('/receta_medica', function(){
+  return view('receta_medica');
+});
