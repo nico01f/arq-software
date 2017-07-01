@@ -18,7 +18,7 @@
             </div>
             <div class="span12 text-center">
                 <div class="btn-group">
-                    <a href="{{{ route('auth/login') }}}" type="button" class="btn btn-lg btn-success">Iniciar sesión</a>
+                    <a href="{ route('auth/login') }" type="button" class="btn btn-lg btn-success">Iniciar sesión</a>
 
                 </div>
               </div>
