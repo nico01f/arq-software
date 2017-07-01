@@ -47,7 +47,14 @@ $(document).ready(function(){
       paciente_id: $('#paciente_id').val(),
       _csrf :  $('meta[name="csrf-token"]').attr("content")
     }, function(response){
-      console.log("RESPONSE" , response)
+      if (response.status == false) {
+        $('#errors').show('fade');
+        $('#errors').text(response.message);
+      }else{
+        alert("FICHA CREADA EXITOSAMENTE");
+        window.location.reload();
+      }
+
     });
 
   })

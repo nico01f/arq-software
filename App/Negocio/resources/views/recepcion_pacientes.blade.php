@@ -8,12 +8,11 @@
             <h3>Recepcion pacientes</h3>
         </div>
         <div class="x_content">
-
-            <form class="" autocomplete="off" >
+            <form class="" autocomplete="off" novalidate="" >
                 <div class="form-group search">
                     <h4 class="titles space">Buscar paciente</h4>
                     <div class="row">
-                        <div class="col-md-4" >
+                        <div class="col-md-8" >
                             <div class="input-group">
                                 <input class="form-control typeahead" type="text" name="buscar" value="">
                                 <span class="input-group-addon">
@@ -29,7 +28,13 @@
             <hr>
             <div class="client-data">
                 <h4 class="titles">Datos paciente</h4>
+
                 <div class="form-group">
+                    <div class="row">
+                        <div class="alert alert-error" id="errors" style="display:none;">
+
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="labels" for="">Rut</div>
@@ -88,8 +93,6 @@
                                 </span>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -106,6 +109,8 @@
                             <option value="">Cardiologia</option>
                         </select>
                     </div>
+
+
                     <button class="btn-submit pull-center" id="submit-btn" role="button">Guardar</button>
                 </div>
             </div>

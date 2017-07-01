@@ -55,12 +55,12 @@
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Recepcion Pacientes <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="/">Buscar</a></li>
+                    <li><a href="/recepcion_pacientes">Ingresar paciente</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-home"></i> Fichas Pacientes <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="/">Listado</a></li>
+                    <li><a href="/listado_fichas">Listado</a></li>
                   </ul>
                 </li>
               </ul>
@@ -77,24 +77,11 @@
             <div class="nav toggle">
               <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
-
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">John Doe
-                  <span class=" fa fa-angle-down"></span>
+                  Logout
                 </a>
-                <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;"> Profile</a></li>
-                  <li>
-                    <a href="javascript:;">
-                      <span class="badge bg-red pull-right">50%</span>
-                      <span>Settings</span>
-                    </a>
-                  </li>
-                  <li><a href="javascript:;">Help</a></li>
-                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                </ul>
               </li>
             </ul>
           </nav>
@@ -102,7 +89,7 @@
 
       </div>
       <!-- /top navigation -->
-      <div class="right_col" role="main">
+      <div class="right_col" role="main">      
         @yield('content')
       </div>
     </div>
@@ -113,12 +100,12 @@
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
   {{-- <script src="{{asset('/js/nprogress.js')}}"></script> --}}
-  <script src="{{asset('/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('/js/jquery.dataTables.js')}}"></script>
   <script src="{{asset('/js/dataTables.bootstrap.min.js')}}"></script>
   <script src="{{asset('/js/dataTables.keyTable.min.js')}}"></script>
-  <script src="{{asset('/js/dataTables.responsive.min.js')}}"></script>
+  <script src="{{asset('/js/dataTables.responsive.js')}}"></script>
   <script src="{{asset('/js/responsive.bootstrap.js')}}"></script>
-  <script src="{{asset('/js/dataTables.scroller.min.js')}}"></script>
+  <script src="{{asset('/js/dataTables.scroller.js')}}"></script>
 
   <script src="{{asset('/js/moment.js')}}"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

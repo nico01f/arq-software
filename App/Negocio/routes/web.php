@@ -14,9 +14,17 @@
 Route::get('/', function(){
   return view('welcome');
 });
+Route::get('/listado_fichas' , function(){
+  return view('listado_fichas_paciente');
+});
+Route::get('/recepcion_pacientes' , function(){
+  return view('recepcion_pacientes');
+});
 Route::get('/receta_medica', function(){
   return view('receta_medica');
 });
+
+
 Route::post('CreatePaciente' , [
   "as" => "CreatePaciente",
   "uses" => "MantenedorController@createPaciente"
