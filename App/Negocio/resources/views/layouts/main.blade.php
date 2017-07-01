@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="{{asset('/css/app.css')}}">
   <!-- Font Awesome -->
   <link href="{{asset('/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
   <!-- NProgress -->
   {{-- <link href="{{asset('/css/nprogress.css')}}" rel="stylesheet"> --}}
   <!-- jQuery custom content scroller -->
@@ -112,6 +114,12 @@
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
   {{-- <script src="{{asset('/js/nprogress.js')}}"></script> --}}
+  <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+  <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
   <script src="{{asset('/js/moment.js')}}"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -120,7 +128,7 @@
   <script src="{{asset('/js/bootstrap-typeahead.js')}}"></script>
   <script src="{{asset('/js/custom.js')}}"></script>
   <script src="{{asset('/js/validaRut.js')}}"></script>
-  @yield('scripts')
+
 
 
 

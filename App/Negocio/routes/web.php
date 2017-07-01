@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/', function(){
+  return view('welcome');
+});
 Route::get('/receta_medica', function(){
   return view('receta_medica');
 });
