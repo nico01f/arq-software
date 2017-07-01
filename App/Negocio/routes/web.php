@@ -11,25 +11,9 @@
 |
 */
 
-Route::get('/', [
-  "as" => "Recepcion",
-  "uses" => "EpicrisisController@getRecepcion"
-]);
-
-Route::get('ficha_epicrisis' , [
-  "as" => "Epicrisis",
-  "uses" => "EpicrisisController@getEpicrisis"
-]);
-
-Route::post('auth/login' , [
-  "as" => "Login",
-  "uses" => "EpicrisisController@getLogin"
-]);
-
-Route::get('/login' , function(){
-  return view('login');
+Route::get('/receta_medica', function(){
+  return view('receta_medica');
 });
-
 Route::post('CreatePaciente' , [
   "as" => "CreatePaciente",
   "uses" => "MantenedorController@createPaciente"

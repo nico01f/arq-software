@@ -120,7 +120,7 @@
   <script src="{{asset('/js/bootstrap-typeahead.js')}}"></script>
   <script src="{{asset('/js/custom.js')}}"></script>
   <script src="{{asset('/js/validaRut.js')}}"></script>
-
+  @yield('scripts')
 
 
 
