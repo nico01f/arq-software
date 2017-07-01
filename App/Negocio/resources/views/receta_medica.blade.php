@@ -12,7 +12,7 @@
     <div class="form-group">
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-10">
         <div class="labels" for="">Rut</div>
         <div class="input-group">
           <input class="form-control" type="text"  id="rut_paciente" value="">
@@ -21,7 +21,7 @@
           </span>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-10">
       <div class="labels" for="">Nombre paciente</div>
       <div class="input-group">
           <input class="form-control" type="text"  id="nombre_paciente" value="">
@@ -30,7 +30,7 @@
           </span>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-10">
       <div class="labels" for="">Telefono</div>
       <div class="input-group">
           <input class="form-control" type="text"  id="telefono_paciente" value="">
@@ -41,7 +41,7 @@
 
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-10">
       <div class="labels" for="">Edad</div>
       <div class="input-group">
           <input class="form-control" type="number"  id="edad_paciente" value="">
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-10">
       <div class="labels" for="">Atendido por: </div>
       <div class="input-group">
           <input class="form-control" type="text"  id="atendido_paciente" value="">
@@ -81,12 +81,4 @@
 
 
 @endsection
-@section("scripts")
-<script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker({
-                    locale: 'eng'
-                });
-            });
-</script>
 @endsection
