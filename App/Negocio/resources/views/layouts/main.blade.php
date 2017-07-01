@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{csrf_token() }}" >
 
-  <title>Gestion epicrisis | @yield('title')</title>
+  <title>MedicalGest | @yield('title')</title>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="{{asset('/css/app.css')}}">
@@ -33,7 +33,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Gestion epicrisis</span></a>
+            <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>MedicalGest</span></a>
           </div>
 
           <div class="clearfix"></div>
