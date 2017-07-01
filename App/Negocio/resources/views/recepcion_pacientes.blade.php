@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="labels" for="">Nombre</div>
                             <div class="input-group">
                                 <input class="form-control" type="text" id="nombre_paciente" value="">
@@ -81,12 +81,20 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="labels" for="">Apellidos</div>
+                        <div class="col-md-4">
+                            <div class="labels" for="">Apellido paterno</div>
                             <div class="input-group">
-                                <input class="form-control" type="text" id="apellidos_paciente" value="">
-                                <input type="hidden" id="ape_p" value="">
-                                <input type="hidden" id="ape_m" value="">
+                                <input class="form-control" type="text" id="ape_p" value="">
+
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="labels" for="">Apellido materno</div>
+                            <div class="input-group">
+                                <input class="form-control" type="text" id="ape_m" value="">
 
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>

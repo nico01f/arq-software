@@ -3,12 +3,12 @@
 @section('title', 'Ficha')
 
 @section('content')
-  <div class="panel panel-primary">
-    <div class="panel-heading">
+  <div class="x_panel">
+    <div class="x_title">
       <h3>      Ficha Paciente : Christian Santa Maria - 17861005-8
       </h3>
     </div>
-    <div class="panel-body">
+    <div class="x_content">
       <div class="client-data" style="display:inherit;">
         <h4 class="titles">Datos paciente</h4>
         <div class="form-group">

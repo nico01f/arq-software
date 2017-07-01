@@ -24,6 +24,9 @@ Route::get('/receta_medica', function(){
   return view('receta_medica');
 });
 
+Route::get('/ficha_epicrisis' , function(){
+  return view('ficha_epicrisis');
+});
 
 Route::post('CreatePaciente' , [
   "as" => "CreatePaciente",

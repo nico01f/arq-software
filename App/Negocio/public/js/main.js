@@ -21,7 +21,12 @@ $(document).ready(function(){
       );
     }
   });
-
+  function abrirEspera(){
+    $('#loading').show('fade');
+  }
+  function cerrarEspera(){
+    $('#loading').hide('fade');
+  }
   $('#submit-btn').click(function(e){
 
     var rut =  $('#rut_paciente').val();
@@ -34,27 +39,35 @@ $(document).ready(function(){
     var area = $('#AreaList').val();
 
     console.log(rut,sexo,fecha_nacimiento,nombre_paciente,apellido_m,apellido_p,area);
-
-    $.post(base_url + 'Epicrisis/CreatePaciente',{
-      rut : rut ,
-      sexo : sexo,
-      fecha_nacimiento : fecha_nacimiento,
-      nombre : nombre_paciente,
-      apellido_paterno : apellido_p,
-      apellido_materno : apellido_m,
-      area : area,
-      prevision : 1,
-      paciente_id: $('#paciente_id').val(),
-      _csrf :  $('meta[name="csrf-token"]').attr("content")
-    }, function(response){
-      if (response.status == false) {
-        $('#errors').show('fade');
-        $('#errors').text(response.message);
-      }else{
-        alert("FICHA CREADA EXITOSAMENTE");
-        window.location.reload();
-      }
-
+    $.ajax({
+        url: base_url + 'Epicrisis/CreatePaciente',
+        type:"POST",
+        data:{
+          rut : rut ,
+          sexo : sexo,
+          fecha_nacimiento : fecha_nacimiento,
+          nombre : nombre_paciente,
+          apellido_paterno : apellido_p,
+          apellido_materno : apellido_m,
+          area : area,
+          prevision : 1,
+          paciente_id: $('#paciente_id').val(),
+          _csrf :  $('meta[name="csrf-token"]').attr("content")
+        } ,
+        beforeSend: abrirEspera,
+        complete:cerrarEspera,
+        success: function(response){
+          if (response.status == false) {
+            $('#errors').show('fade');
+            $('#errors').text(response.message);
+          }else{
+            alert("FICHA CREADA EXITOSAMENTE");
+            window.location.reload();
+          }
+        },
+        error:function(error){
+          console.log(error);
+        }
     });
 
   })
@@ -67,6 +80,7 @@ $(document).ready(function(){
       console.log(current.id);
       // Some item from your model is active!
       if (current.name == $search.val()) {
+        console.log(current);
         $('.client-data').show('fade');
         $('.derivacion').show('fade');
         let new_rut = $.formatRut(current.rut);
@@ -75,7 +89,6 @@ $(document).ready(function(){
         $('#sexo').val(current.sexo);
         $('#fecha_nacimiento').val(current.fec_nac);
         $('#nombre_paciente').val(current.name_2);
-        $('#apellidos_paciente').val(current.apellido_p + current.apellido_m);
         $('#ape_p').val(current.apellido_p);
         $('#ape_m').val(current.apellido_m);
 

@@ -27,9 +27,12 @@
 
   <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
-<body class="nav-md sidebar_fixed">
+<body class="nav-md fixed_sidebar">
+
   <div class="container body">
+
     <div class="main_container">
+          <div id="loading" style="display:none;"></div>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
@@ -89,7 +92,8 @@
 
       </div>
       <!-- /top navigation -->
-      <div class="right_col" role="main">      
+      <div class="right_col" role="main">
+
         @yield('content')
       </div>
     </div>
@@ -106,8 +110,36 @@
   <script src="{{asset('/js/dataTables.responsive.js')}}"></script>
   <script src="{{asset('/js/responsive.bootstrap.js')}}"></script>
   <script src="{{asset('/js/dataTables.scroller.js')}}"></script>
-
   <script src="{{asset('/js/moment.js')}}"></script>
+  <script src="{{asset('/js/spin.js')}}"></script>
+  <script type="text/javascript">
+  $('#datatable').DataTable();
+  var opts = {
+    lines: 13 // The number of lines to draw
+    , length: 28 // The length of each line
+    , width: 14 // The line thickness
+    , radius: 42 // The radius of the inner circle
+    , scale: 1 // Scales overall size of the spinner
+    , corners: 1 // Corner roundness (0..1)
+    , color: '#000' // #rgb or #rrggbb or array of colors
+    , opacity: 0.25 // Opacity of the lines
+    , rotate: 0 // The rotation offset
+    , direction: 1 // 1: clockwise, -1: counterclockwise
+    , speed: 1 // Rounds per second
+    , trail: 60 // Afterglow percentage
+    , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+    , zIndex: 2e9 // The z-index (defaults to 2000000000)
+    , className: 'spinner' // The CSS class to assign to the spinner
+    , top: '50%' // Top position relative to parent
+    , left: '50%' // Left position relative to parent
+    , shadow: false // Whether to render a shadow
+    , hwaccel: false // Whether to use hardware acceleration
+    , position: 'absolute' // Element positioning
+  }
+  var target = document.getElementById('loading')
+  var spinner = new Spinner(opts).spin(target);
+  console.log("SPINNER" , spinner);
+  </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="{{asset('/js/app.js')}}"></script>
   <script src="{{asset('/js/main.js')}}"></script>
