@@ -25,7 +25,6 @@ $(document).ready(function(){
   $('#submit-btn').click(function(e){
 
     var rut =  $('#rut_paciente').val();
-    rut = rut.replace('.','');
     var sexo =  $('#sexo').val();
     var fecha_nacimiento =  $('#fecha_nacimiento').val();
     var nombre_paciente =  $('#nombre_paciente').val();
