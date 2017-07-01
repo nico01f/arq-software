@@ -11,18 +11,43 @@
 |
 */
 
-Route::get('/', function () {
-    return view('recepcion_pacientes');
-});
-
-Route::get('/ficha_epicrisis' , function(){
-  return view('ficha_epicrisis');
-});
-
-Route::get('/login' , function(){
-  return view('login');
-});
-
 Route::get('/receta_medica', function(){
   return view('receta_medica');
 });
+Route::post('CreatePaciente' , [
+  "as" => "CreatePaciente",
+  "uses" => "MantenedorController@createPaciente"
+]);
+
+Route::post('EditPaciente' , [
+  "as" => "EditPaciente",
+  "uses" => "MantenedorController@editPaciente"
+]);
+
+Route::post('DelPaciente' , [
+  "as" => "DelPaciente",
+  "uses" => "MantenedorController@delPaciente"
+]);
+
+Route::match(["get", "post"], 'JsonPaciente' , [
+  "as" => "JsonPaciente",
+  "uses" => "MantenedorController@jsonPaciente"
+]);
+
+
+Route::match(["get", "post"], 'JsonPrevision' , [
+  "as" => "JsonPrevision",
+  "uses" => "MantenedorController@jsonPrevision"
+]);
+
+
+Route::match(["get", "post"], 'JsonArea' , [
+  "as" => "JsonArea",
+  "uses" => "MantenedorController@jsonArea"
+]);
+
+
+Route::match(["get", "post"], 'JsonFuncionario' , [
+  "as" => "JsonFuncionario",
+  "uses" => "MantenedorController@jsonFuncionario"
+]);
