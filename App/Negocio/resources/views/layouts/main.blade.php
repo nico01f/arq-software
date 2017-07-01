@@ -13,8 +13,9 @@
   <link rel="stylesheet" href="{{asset('/css/app.css')}}">
   <!-- Font Awesome -->
   <link href="{{asset('/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-
+  <link href="{{asset('/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
   <!-- NProgress -->
   {{-- <link href="{{asset('/css/nprogress.css')}}" rel="stylesheet"> --}}
   <!-- jQuery custom content scroller -->
@@ -79,7 +80,7 @@
 
             <ul class="nav navbar-nav navbar-right">
               <li class="">
-                <a href="javascript::" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <a href="" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <img src="images/img.jpg" alt="">John Doe
                   <span class=" fa fa-angle-down"></span>
                 </a>
@@ -95,8 +96,6 @@
                   <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                 </ul>
               </li>
-
-
             </ul>
           </nav>
         </div>
@@ -114,12 +113,12 @@
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
   {{-- <script src="{{asset('/js/nprogress.js')}}"></script> --}}
-  <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-  <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-  <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-  <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+  <script src="{{asset('/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('/js/dataTables.bootstrap.min.js')}}"></script>
+  <script src="{{asset('/js/dataTables.keyTable.min.js')}}"></script>
+  <script src="{{asset('/js/dataTables.responsive.min.js')}}"></script>
+  <script src="{{asset('/js/responsive.bootstrap.js')}}"></script>
+  <script src="{{asset('/js/dataTables.scroller.min.js')}}"></script>
 
   <script src="{{asset('/js/moment.js')}}"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
