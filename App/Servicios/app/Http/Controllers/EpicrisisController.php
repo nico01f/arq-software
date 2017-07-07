@@ -43,14 +43,6 @@ class EpicrisisController extends Controller
       return $jsondata;
     }
 
-    public function getRecepcion(){
-      return view('recepcion_pacientes');
-    }
-
-    public function getEpicrisis(){
-      return view('ficha_epicrisis');
-    }
-
     public function getListaPacientes(Request $request){
       $validator = Validator::make( $request->all(),
           [

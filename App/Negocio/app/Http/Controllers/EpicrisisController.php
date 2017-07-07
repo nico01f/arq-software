@@ -11,30 +11,8 @@ use App\Epicrisis;
 
 class EpicrisisController extends Controller
 {
-    public function getLogin(Request $request){
-      $validator = Validator::make( $request->all(),
-          [
-              'rut' => 'required',
-              'password' => 'required',
-          ]
-      );
-
-      if(!$validator->fails()){
-        $rut = $request->input('rut');
-        $password = $request->input('password');
-
-        if (Auth::attempt(['rut' => $rut, 'password' => $password])) {
-          $jsondata['status'] = true;
-          $jsondata['message'] = '';
-        }else{
-          $jsondata['status'] = false;
-          $jsondata['message'] = 'Usuario o contraseña incorrectos.';
-        }
-      }else{
-        $jsondata['status'] = false;
-        $jsondata['message'] = str_replace('.','.<br>', $validator->errors()->all());
-      }
-      return $jsondata;
+    public function getLogin(){
+      return view('login');
     }
 
     public function getRecepcion(){
@@ -45,8 +23,11 @@ class EpicrisisController extends Controller
       return view('ficha_epicrisis');
     }
 
-    public function getListaPacientes(Request $request){
-      //return Paciente::select('id_epicrisis', 'nombre weon', 'fecha')
-                      //->join('', '', '', '');
+    public function getReceta(){
+      return view('receta_medica');
+    }
+
+    public function getListadoFichas(){
+      return view('listado_fichas_paciente');
     }
 }
