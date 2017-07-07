@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+# Dependencias
+# vagrant plugin install vagrant-hosts
+# vagrant plugin install vagrant-cachier
+#####
+# Definición de ambientes laravel para proyecto Arq. Software
+####
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "laravel/homestead"
+
+  nodes = {
+  :frontend   => {:host => 'as-frontend01',   :ip => '192.168.33.10', :dir => "Negocio",   :port => 8080},
+  :backend    => {:host => 'as-backend01',    :ip => '192.168.33.11', :dir => "Servicios", :port => 8081},
+  :db         => {:host => 'as-tx-mon02-zz1', :ip => '192.168.33.12'},
+  }
+
+  nodes.each do |node, opt|
+    config.vm.define name do |node|
+      node.vm.provision :host do |provisioner|
+        provisioner.autoconfigure = false
+        provisioner.add_host "#{opt[:ip]}", "#{opt[:node]}"
+      end
+      node.vm.network :private_network, ip: opt[:ip]
+      node.vm.hostname = "#{opt[:hostname]}"
+      node.vm.synced_folder "#{opt[:dir]}", "/var/www/html/arq_soft", type: '9p'
+      node.vm.network "forwarded_port", guest: 80, host: opt[:port]
+      if opt[:host].include? "backend"
+        node.vm.provision "shell", inline: <<-SHELL
+        sed "s/127.0.0.1/#{nodes[:database][:ip]}/g" /var/www/html/arq_soft/config/database.php
+        SHELL
+      elsif opt[:host].include? "frontend"
+        node.vm.provision "shell", inline: <<-SHELL
+          sed "s/190.8.110.120/#{nodes[:backend][:ip]}/g" /var/www/html/arq_soft/public/js/main.js
+        SHELL
+      end
+      end
+    end
+  end
