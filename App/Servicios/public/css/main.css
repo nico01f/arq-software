@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300i,400,400i,500,500i');
+.contenedor{
+  margin-top: 50px;
+}
+body{
+  background: rgba(240, 240, 240, 0.7);
+  font-family: 'Roboto', sans-serif;
+}
+
+.labels{
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.row{
+  margin: 15px 0 ;
+}
+.client-data,.derivacion{
+  display: none;
+}
+.antecendentes, .diagnostico , .procedimiento , .medicamentos{
+  width: 107.5%;
+}
+.client-data, .derivacion , .search , .antecendentes , .diagnostico , .procedimiento , .medicamentos {
+  padding: 0 2em;
+  margin: 1em;
+}
+.btn-submit{
+  font-size: 1em;
+  font-weight: 300;
+  margin: 50px 40%;
+  width: 200px;
+  line-height: 40px;
+  border: none;
+  border-radius: 20px;
+  opacity: 0.95;
+	background-color: #3ca2ff;
+	box-shadow: 0 2px 4px 0 rgba(60, 162, 255, 0.35);
+  color: #fff;
+}
+.form-control{
+  width: 90%;
+}
+
+.titles{
+  margin: 0.5em;
+  font-size: 2em;
+}
