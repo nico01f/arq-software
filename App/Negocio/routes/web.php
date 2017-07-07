@@ -11,31 +11,43 @@
 |
 */
 
-Route::get('/', function(){
-  return view('welcome');
-});
+
+
 
 Route::get('auth/login' , [
   "as" => "auth/login",
   "uses" => "EpicrisisController@getLogin"
 ]);
 
-Route::get('Recepcion' , [
-  "as" => "Recepcion",
-  "uses" => "EpicrisisController@getRecepcion"
+Route::post('auth/login' , [
+  "as" => "auth/login",
+  "uses" => "EpicrisisController@postLogin"
 ]);
 
-Route::get('ListadoFichas' , [
-  "as" => "ListadoFichas",
-  "uses" => "EpicrisisController@getListadoFichas"
-]);
+Route::middleware(['auth'])->group(function () {
 
-Route::get('Epicrisis' , [
-  "as" => "Epicrisis",
-  "uses" => "EpicrisisController@getEpicrisis"
-]);
+  Route::get('/', function(){
+    return view('welcome');
+  });
 
-Route::get('receta_medica' , [
-  "as" => "receta_medica",
-  "uses" => "EpicrisisController@getReceta"
-]);
+  Route::get('Recepcion' , [
+    "as" => "Recepcion",
+    "uses" => "EpicrisisController@getRecepcion"
+  ]);
+
+  Route::get('ListadoFichas' , [
+    "as" => "ListadoFichas",
+    "uses" => "EpicrisisController@getListadoFichas"
+  ]);
+
+  Route::get('Epicrisis' , [
+    "as" => "Epicrisis",
+    "uses" => "EpicrisisController@getEpicrisis"
+  ]);
+
+  Route::get('receta_medica' , [
+    "as" => "receta_medica",
+    "uses" => "EpicrisisController@getReceta"
+  ]);
+
+});
