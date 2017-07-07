@@ -14,43 +14,28 @@
 Route::get('/', function(){
   return view('welcome');
 });
-Route::get('/receta_medica', function(){
-  return view('receta_medica');
-});
-Route::post('CreatePaciente' , [
-  "as" => "CreatePaciente",
-  "uses" => "MantenedorController@createPaciente"
+
+Route::get('auth/login' , [
+  "as" => "auth/login",
+  "uses" => "EpicrisisController@getLogin"
 ]);
 
-Route::post('EditPaciente' , [
-  "as" => "EditPaciente",
-  "uses" => "MantenedorController@editPaciente"
+Route::get('Recepcion' , [
+  "as" => "Recepcion",
+  "uses" => "EpicrisisController@getRecepcion"
 ]);
 
-Route::post('DelPaciente' , [
-  "as" => "DelPaciente",
-  "uses" => "MantenedorController@delPaciente"
+Route::get('ListadoFichas' , [
+  "as" => "ListadoFichas",
+  "uses" => "EpicrisisController@getListadoFichas"
 ]);
 
-Route::match(["get", "post"], 'JsonPaciente' , [
-  "as" => "JsonPaciente",
-  "uses" => "MantenedorController@jsonPaciente"
+Route::get('Epicrisis' , [
+  "as" => "Epicrisis",
+  "uses" => "EpicrisisController@getEpicrisis"
 ]);
 
-
-Route::match(["get", "post"], 'JsonPrevision' , [
-  "as" => "JsonPrevision",
-  "uses" => "MantenedorController@jsonPrevision"
-]);
-
-
-Route::match(["get", "post"], 'JsonArea' , [
-  "as" => "JsonArea",
-  "uses" => "MantenedorController@jsonArea"
-]);
-
-
-Route::match(["get", "post"], 'JsonFuncionario' , [
-  "as" => "JsonFuncionario",
-  "uses" => "MantenedorController@jsonFuncionario"
+Route::get('receta_medica' , [
+  "as" => "receta_medica",
+  "uses" => "EpicrisisController@getReceta"
 ]);

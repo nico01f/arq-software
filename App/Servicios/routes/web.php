@@ -11,24 +11,14 @@
 |
 */
 
-Route::get('/', [
-  "as" => "Recepcion",
-  "uses" => "EpicrisisController@getRecepcion"
-]);
-
-Route::get('ficha_epicrisis' , [
-  "as" => "Epicrisis",
-  "uses" => "EpicrisisController@getEpicrisis"
-]);
+Route::get('/' , function(){
+  return ["status" => true];
+});
 
 Route::post('auth/login' , [
   "as" => "Login",
   "uses" => "EpicrisisController@getLogin"
 ]);
-
-Route::get('/login' , function(){
-  return view('login');
-});
 
 Route::post('CreatePaciente' , [
   "as" => "CreatePaciente",
@@ -70,12 +60,10 @@ Route::match(["get", "post"], 'JsonPrevision' , [
   "uses" => "MantenedorController@jsonPrevision"
 ]);
 
-
 Route::match(["get", "post"], 'JsonArea' , [
   "as" => "JsonArea",
   "uses" => "MantenedorController@jsonArea"
 ]);
-
 
 Route::match(["get", "post"], 'JsonFuncionario' , [
   "as" => "JsonFuncionario",
