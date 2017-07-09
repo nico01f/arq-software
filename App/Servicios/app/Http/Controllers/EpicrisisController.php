@@ -33,15 +33,15 @@ class EpicrisisController extends Controller
         if (Auth::attempt(['rut' => $rut, 'password' => $password])) {
           $jsondata['status'] = true;
           $jsondata['message'] = Array(
-                                    "id" => Auth::user()->id,
-                                    "rut" => Auth::user()->rut,
-                                    "nombre" => Auth::user()->nombre,
-                                    "appelidop" => Auth::user()->appelidop,
-                                    "appelidom" => Auth::user()->appelidom,
-                                    "email" => Auth::user()->email,
-                                    "especialidad_id" => Auth::user()->especialidad_id,
-                                    "tipo_funcionario_id" => Auth::user()->tipo_funcionario_id
-                                );
+              "id" => Auth::user()->id,
+              "rut" => Auth::user()->rut,
+              "nombre" => Auth::user()->nombre,
+              "appelidop" => Auth::user()->apellidop,
+              "appelidom" => Auth::user()->apellidom,
+              "email" => Auth::user()->email,
+              "especialidad_id" => Auth::user()->especialidad_id,
+              "tipo_funcionario_id" => Auth::user()->tipo_funcionario_id
+          );
         }else{
           $jsondata['status'] = false;
           $jsondata['message'] = 'Usuario o contraseña incorrectos.';
