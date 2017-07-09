@@ -189,7 +189,7 @@ class EpicrisisController extends Controller
     public function getPDFDiagnostico(Request $request){
       if ($request->has('ficha')) {
         $ficha = Epicrisis::select('area.valor as area', 'epicrisis.created_at as fecha', 'paciente.rut', 'paciente.nombre', 'paciente.apellidop', 'paciente.apellidom', 'antecedente.valor as antecedente', 'diagnostico.valor as diagnostico', 'procedimiento.valor as procedimiento', 'receta.valor as receta')
-                          ->join('paciete', 'paciente.id', '=', 'epicrisis.paciente_id')
+                          ->join('paciente', 'paciente.id', '=', 'epicrisis.paciente_id')
                           ->join('area', 'area.id', '=', 'apicrisis.area_id')
                           ->leftJoin('antecedente', 'antecedente.epicrisis_id', '=', 'epicrisis.id')
                           ->leftJoin('diagnostico', 'diagnostico.epicrisis_id', '=', 'epicrisis.id')
