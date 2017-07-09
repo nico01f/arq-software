@@ -69,3 +69,8 @@ Route::match(["get", "post"], 'JsonFuncionario' , [
   "as" => "JsonFuncionario",
   "uses" => "MantenedorController@jsonFuncionario"
 ]);
+
+Route::match(["get", "post"], 'pdfFicha' , [
+  "as" => "pdfFicha",
+  "uses" => "EpicrisisController@getPDFDiagnostico"
+]);

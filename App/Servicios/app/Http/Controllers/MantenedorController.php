@@ -12,6 +12,7 @@ use App\Epicrisis;
 
 use Validator;
 use DB;
+use PDF;
 
 class MantenedorController extends Controller
 {
@@ -282,8 +283,88 @@ class MantenedorController extends Controller
         return false;
       }
     }
+    
+    public function postIngresarDiagnostico(Request $request){
+      $validator = Validator::make( $request->all(),
+          [
+              'ficha' => 'required',
+              'funcionario' =>  'required'
+          ]
+      );
 
-    public function crearDiagnostico(Request $request){
+      if(!$validator->fails()){
+        $cont = 0;
 
+        if($request->has('antecedente')){
+          $antecedente = new Antecedente;
+          $antecedente->valor = $request->input('antecedente');
+          $antecedente->epicrisis_id = $request->input('ficha');
+          $antecedente->funcionario_id = $request->input('funcionario');
+
+          if(!$antecedente->save()){
+              $jsondata['status'] = false;
+              $jsondata['message'] = 'Ocurrió un problema al guardar el antecedente, favor reintentar.';
+              return $jsondata;
+          }
+          $cont++;
+        }
+
+        if($request->has('diagnostico')){
+          $diagnostico = new Diagnostico;
+          $diagnostico->valor = $request->input('diagnostico');
+          $diagnostico->epicrisis_id = $request->input('ficha');
+          $diagnostico->funcionario_id = $request->input('funcionario');
+
+          if(!$diagnostico->save()){
+              $jsondata['status'] = false;
+              $jsondata['message'] = 'Ocurrió un problema al guardar el diagnostico, favor reintentar.';
+              return $jsondata;
+          }
+          $cont++;
+        }
+
+
+        if($request->has('procedimiento')){
+          $procedimiento = new Procedimiento;
+          $procedimiento->valor = $request->input('procedimiento');
+          $procedimiento->epicrisis_id = $request->input('ficha');
+          $procedimiento->funcionario_id = $request->input('funcionario');
+
+          if(!$procedimiento->save()){
+            $jsondata['status'] = false;
+            $jsondata['message'] = 'Ocurrió un problema al guardar el procedimiento, favor reintentar.';
+            return $jsondata;
+          }
+          $cont++;
+        }
+
+
+        if($request->has('receta')){
+          $receta = new Receta;
+          $receta->valor = $request->input('receta');
+          $receta->epicrisis_id = $request->input('ficha');
+          $receta->funcionario_id = $request->input('funcionario');
+
+          if(!$receta->save()){
+            $jsondata['status'] = false;
+            $jsondata['message'] = 'Ocurrió un problema al asignar guardar la receta, favor reintentar.';
+            return $jsondata;
+          }
+          $cont++;
+        }
+
+        if($cont>0){
+          $jsondata['status'] = true;
+          $jsondata['message'] = 'Diagnostico ingresado exitosamente.';
+        }else{
+          $jsondata['status'] = false;
+          $jsondata['message'] = 'No existen datos para guardar.';
+        }
+      }else{
+          $jsondata['status'] = false;
+          $jsondata['message'] = str_replace('.','.<br>', $validator->errors()->all());
+      }
+
+      return $jsondata;
     }
 }

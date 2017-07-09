@@ -31,7 +31,16 @@ class EpicrisisController extends Controller
 
         if (Auth::attempt(['rut' => $rut, 'password' => $password])) {
           $jsondata['status'] = true;
-          $jsondata['message'] = Auth::user();
+          $jsondata['message'] = Array(
+                                    "id" => Auth::user()->id,
+                                    "rut" => Auth::user()->rut,
+                                    "nombre" => Auth::user()->nombre,
+                                    "appelidop" => Auth::user()->appelidop,
+                                    "appelidom" => Auth::user()->appelidom,
+                                    "email" => Auth::user()->email,
+                                    "especialidad_id" => Auth::user()->especialidad_id,
+                                    "tipo_funcionario_id" => Auth::user()->tipo_funcionario_id
+                                );
         }else{
           $jsondata['status'] = false;
           $jsondata['message'] = 'Usuario o contraseña incorrectos.';
@@ -174,5 +183,22 @@ class EpicrisisController extends Controller
       }
 
       return $jsondata;
+    }
+
+    public function getPDFDiagnostico(Request $request){
+      if ($request->has('ficha')) {
+        $ficha = Epicrisis::select('area.valor as area', 'apicrisis.created_at as fecha', 'paciente.rut', 'paciente.nombre', 'paciente.apellidop', 'paciente.apellidom', 'antecedente.valor as antecedente', 'diagnostico.valor as diagnostico', 'procedimiento.valor as procedimiento', 'receta.valor as receta')
+                          ->join('paciete', 'paciente.id', '=', 'epicrisis.paciente_id')
+                          ->join('area', 'area.id', '=', 'apicrisis.area_id')
+                          ->leftJoin('antecedente', 'antecedente.epicrisis_id', '=', 'epicrisis.id')
+                          ->leftJoin('diagnostico', 'diagnostico.epicrisis_id', '=', 'epicrisis.id')
+                          ->leftJoin('procedimiento', 'procedimiento.epicrisis_id', '=', 'epicrisis.id')
+                          ->leftJoin('receta', 'receta.epicrisis_id', '=', 'epicrisis.id')
+                          ->where('epicrisis.id', $request->input('ficha'));
+
+        $pdf = PDF::loadView('PDF.DocumentoPrestamo', ["fichas" => $ficha]);
+
+        return $pdf->stream('prestamo.pdf');
+      }
     }
 }
