@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Validator;
 use DB;
+use PDF;
 
 use App\Epicrisis;
 use App\Paciente;
