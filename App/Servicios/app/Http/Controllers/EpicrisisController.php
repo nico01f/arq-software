@@ -203,7 +203,8 @@ class EpicrisisController extends Controller
 
           return $pdf->stream('prestamo.pdf');
         }else{
-          return false;
+          $jsondata['status'] = false;
+          return $jsondata;
         }
       }
     }
