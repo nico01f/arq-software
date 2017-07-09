@@ -198,9 +198,13 @@ class EpicrisisController extends Controller
                           ->where('epicrisis.id', $request->input('ficha'))
                           ->get();
 
-        $pdf = PDF::loadView('PDF.DocumentoPrestamo', ["fichas" => $ficha]);
+        if(!empty($ficha->toArray())){
+          $pdf = PDF::loadView('PDF.DocumentoPrestamo', ["fichas" => $ficha]);
 
-        return $pdf->stream('prestamo.pdf');
+          return $pdf->stream('prestamo.pdf');
+        }else{
+          return false;
+        }
       }
     }
 }

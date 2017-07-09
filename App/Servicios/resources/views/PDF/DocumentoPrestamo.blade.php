@@ -91,10 +91,6 @@
             <td class=="td2"> {{ date('d/m/Y', strtotime($fichas[0]->fecha)) }} </td>
           </tr>
           <tr>
-            <td class=="td1">Fecha Devolución: </td>
-            <td class=="td2"> {{ date('d/m/Y', strtotime($fichas[0]->fecha_devolucion)) }} </td>
-          </tr>
-          <tr>
             <td class=="td1">Area de Atención: </td>
             <td class=="td2"> {{ $fichas[0]->area }} </td>
           </tr>
@@ -103,6 +99,7 @@
     </div>
     <br>
     <legend>Diagnóstico</legend>
+    <br>
     @if(!empty($fichas[0]->diagnostico))
       @foreach ($fichas as $ficha)
         <p>{{ $ficha->diagnostico }}</p>
@@ -111,13 +108,16 @@
       --SIN DIAGNÓSTICO--
     @endif
 
+    <br><br>
+
     <legend>Receta</legend>
+    <br>
     @if(!empty($fichas[0]->receta))
       @foreach ($fichas as $ficha)
         <p>{{ $ficha->receta }}</p>
       @endforeach
     @else
-      --SIN DIAGNÓSTICO--
+      --SIN RECETA--
     @endif
 
     <br><br>
