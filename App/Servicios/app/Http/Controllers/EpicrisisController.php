@@ -36,8 +36,8 @@ class EpicrisisController extends Controller
               "id" => Auth::user()->id,
               "rut" => Auth::user()->rut,
               "nombre" => Auth::user()->nombre,
-              "appelidop" => Auth::user()->apellidop,
-              "appelidom" => Auth::user()->apellidom,
+              "apellidop" => Auth::user()->apellidop,
+              "apellidom" => Auth::user()->apellidom,
               "email" => Auth::user()->email,
               "especialidad_id" => Auth::user()->especialidad_id,
               "tipo_funcionario_id" => Auth::user()->tipo_funcionario_id
