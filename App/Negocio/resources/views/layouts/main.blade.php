@@ -58,18 +58,20 @@
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
-                @if (\Request::session()->get('user')['tipo'] == 2)
-                  <li><a><i class="fa fa-home"></i> Recepcion Pacientes <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="/Recepcion">Ingresar paciente</a></li>
-                    </ul>
-                  </li>
-                @else
-                  <li><a><i class="fa fa-home"></i> Fichas Pacientes <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="/ListadoFichas">Listado</a></li>
-                    </ul>
-                  </li>
+                @if (\Request::session()->has('user'))
+                  @if (\Request::session()->get('user')['tipo'] == 2)
+                    <li><a><i class="fa fa-home"></i> Recepcion Pacientes <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="/Recepcion">Ingresar paciente</a></li>
+                      </ul>
+                    </li>
+                  @else
+                    <li><a><i class="fa fa-home"></i> Fichas Pacientes <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="/ListadoFichas">Listado</a></li>
+                      </ul>
+                    </li>
+                  @endif
                 @endif
 
               </ul>
