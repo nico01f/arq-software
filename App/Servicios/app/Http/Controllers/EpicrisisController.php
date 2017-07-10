@@ -61,7 +61,7 @@ class EpicrisisController extends Controller
       );
 
       if(!$validator->fails()){
-        return Paciente::select('epicrisis.id', DB::raw("CONCAT(paciente.nombre, ' ', paciente.apellidop, ' ',paciente.apellidom) AS nombre"), 'epicrisis.created_at AS fecha')
+        return Paciente::select('epicrisis.id', 'paciente.id as paciente_id', DB::raw("CONCAT(paciente.nombre, ' ', paciente.apellidop, ' ',paciente.apellidom) AS nombre"), 'epicrisis.created_at AS fecha')
                         ->join('epicrisis', 'epicrisis.paciente_id', '=', 'paciente.id')
                         ->where('epicrisis.area_id', $request->input('area'))
                         ->where('epicrisis.estado_epicrisis_id', 1)
@@ -86,6 +86,7 @@ class EpicrisisController extends Controller
       if(!$validator->fails()){
         $epicrisis = Epicrisis::find($request->input('ficha'));
         $epicrisis->funcionario_resp_id = $request->input('funcionario');
+        $epicrisis->estado_epicrisis_id = 2;
 
         if($epicrisis->save()){
             $jsondata['status'] = true;

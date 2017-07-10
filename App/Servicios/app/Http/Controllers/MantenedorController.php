@@ -105,7 +105,7 @@ class MantenedorController extends Controller
       }
     }
 
-    return json_enconde($jsondata);
+    return $jsondata;
   }
 
   public function editPaciente(Request $request){
@@ -283,7 +283,7 @@ class MantenedorController extends Controller
         return false;
       }
     }
-    
+
     public function postIngresarDiagnostico(Request $request){
       $validator = Validator::make( $request->all(),
           [
@@ -294,6 +294,9 @@ class MantenedorController extends Controller
 
       if(!$validator->fails()){
         $cont = 0;
+        $epicrisis = Epicrisis::find($request->input('ficha'));
+        $epicrisis->estado_epicrisis_id = 3;
+        $epicrisis->save();
 
         if($request->has('antecedente')){
           $antecedente = new Antecedente;
