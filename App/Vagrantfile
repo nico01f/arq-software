@@ -12,30 +12,26 @@ Vagrant.configure("2") do |config|
   config.vm.box = "laravel/homestead"
 
   nodes = {
-  :frontend   => {:host => 'as-frontend01',   :ip => '192.168.33.10', :dir => "Negocio",   :port => 8080},
-  :backend    => {:host => 'as-backend01',    :ip => '192.168.33.11', :dir => "Servicios", :port => 8081},
-  :db         => {:host => 'as-tx-mon02-zz1', :ip => '192.168.33.12'},
+  :frontend01   => {:host => 'as-frontend01',   :ip => '192.168.33.10', :dir => "Negocio",   :port => 8080},
+  :backend01    => {:host => 'as-backend01',    :ip => '192.168.33.11', :dir => "Servicios", :port => 8081},
+  :db01         => {:host => 'as-db01', :ip => '192.168.33.12'},
   }
 
-  nodes.each do |node, opt|
+  nodes.each do |name, options|
     config.vm.define name do |node|
-      node.vm.provision :host do |provisioner|
+      node.vm.provision :hot do |provisioner|
         provisioner.autoconfigure = false
-        provisioner.add_host "#{opt[:ip]}", "#{opt[:node]}"
+        provisioner.add_host "#{options[:ip]}", "#{options[:node]}"
       end
-      node.vm.network :private_network, ip: opt[:ip]
-      node.vm.hostname = "#{opt[:hostname]}"
-      node.vm.synced_folder "#{opt[:dir]}", "/var/www/html/arq_soft", type: '9p'
-      node.vm.network "forwarded_port", guest: 80, host: opt[:port]
-      if opt[:host].include? "backend"
-        node.vm.provision "shell", inline: <<-SHELL
-        sed "s/127.0.0.1/#{nodes[:database][:ip]}/g" /var/www/html/arq_soft/config/database.php
-        SHELL
-      elsif opt[:host].include? "frontend"
-        node.vm.provision "shell", inline: <<-SHELL
-          sed "s/190.8.110.120/#{nodes[:backend][:ip]}/g" /var/www/html/arq_soft/public/js/main.js
-        SHELL
-      end
+      node.vm.network :private_network, ip: options[:ip]
+      node.vm.hostname = "#{options[:hostname]}"
+      node.vm.synced_folder "#{options[:dir]}", "/var/www/html/arq_soft", type: '9p'
+      node.vm.network "forwarded_port", guest: 80, host: options[:port]
+      if options[:host].include? "backend"
+        node.vm.provision "shell", path: "./provision/backend.sh"
+      elsif options[:host].include? "frontend"
+        node.vm.provision "shell", path: "./provision/frontend.sh"
       end
     end
   end
+end
