@@ -26,6 +26,8 @@
 
 
   <link rel="stylesheet" href="{{asset('/css/main.css')}}">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
 </head>
 <body class="nav-md fixed_sidebar">
 
@@ -56,16 +58,20 @@
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Recepcion Pacientes <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/recepcion_pacientes">Ingresar paciente</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-home"></i> Fichas Pacientes <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="/listado_fichas">Listado</a></li>
-                  </ul>
-                </li>
+                @if (\Request::session()->get('user')['tipo'] == 2)
+                  <li><a><i class="fa fa-home"></i> Recepcion Pacientes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/Recepcion">Ingresar paciente</a></li>
+                    </ul>
+                  </li>
+                @else
+                  <li><a><i class="fa fa-home"></i> Fichas Pacientes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/ListadoFichas">Listado</a></li>
+                    </ul>
+                  </li>
+                @endif
+
               </ul>
             </div>
           </div>
@@ -82,7 +88,7 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
               <li class="">
-                <a href="" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <a href="/auth/logout" class="user-profile dropdown-toggle">
                   Logout
                 </a>
               </li>
@@ -101,8 +107,7 @@
 
   <!-- jQuery custom content scroller -->
 
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+
   {{-- <script src="{{asset('/js/nprogress.js')}}"></script> --}}
   <script src="{{asset('/js/jquery.dataTables.js')}}"></script>
   <script src="{{asset('/js/dataTables.bootstrap.min.js')}}"></script>

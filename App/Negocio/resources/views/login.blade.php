@@ -11,9 +11,9 @@
     <div class="animate form login_form">
       <section class="login_content">
         <form id="formLogin" action="">
-          <h1>Login Form</h1>
+          <h1>MedicalGest Login</h1>
           <div>
-            <input type="text" class="form-control"  id="username" placeholder="Username" />
+            <input type="text" class="form-control"  id="username" placeholder="Rut sin digitos ni guion." />
           </div>
           <div>
             <input type="password" class="form-control" id="password" placeholder="Password" />

@@ -1,8 +1,8 @@
+
+
 $(document).ready(function(){
   $('#rut_paciente').rut();
   var base_url  = "http://190.8.110.120/";
-
-
 
   var $search = $(".typeahead");
   $.get(base_url + 'Epicrisis/JsonPaciente',{}, function(pacientes){
@@ -64,7 +64,7 @@ $(document).ready(function(){
             $('#errors').show('fade');
             $('#errors').text(response.message);
           }else{
-            alert("FICHA CREADA EXITOSAMENTE");
+            alert("Paciente ingresado exitosamente");
             window.location.reload();
           }
         },
@@ -94,8 +94,6 @@ $(document).ready(function(){
         $('#nombre_paciente').val(current.name_2);
         $('#ape_p').val(current.apellido_p);
         $('#ape_m').val(current.apellido_m);
-
-
 
         // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
       } else {

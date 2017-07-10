@@ -24,6 +24,11 @@ Route::post('auth/login' , [
   "uses" => "EpicrisisController@postLogin"
 ]);
 
+Route::get('auth/logout' , [
+  "as" => "auth/logout",
+  "uses" => "EpicrisisController@getlogout"
+]);
+
 Route::middleware(['auth'])->group(function () {
 
   Route::get('/', function(){
@@ -40,12 +45,12 @@ Route::middleware(['auth'])->group(function () {
     "uses" => "EpicrisisController@getListadoFichas"
   ]);
 
-  Route::get('Epicrisis' , [
+  Route::get('Epicrisis/{id_ficha}/{id_paciente}' , [
     "as" => "Epicrisis",
     "uses" => "EpicrisisController@getEpicrisis"
   ]);
 
-  Route::get('receta_medica' , [
+  Route::get('receta_medica/' , [
     "as" => "receta_medica",
     "uses" => "EpicrisisController@getReceta"
   ]);

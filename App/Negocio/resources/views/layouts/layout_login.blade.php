@@ -26,8 +26,6 @@
 <body class="nav-md sidebar_fixed">
     <div class="container body">
         <div class="main_container">
-
-
             <!-- /top navigation -->
             <div class="" role="main">
                 @yield('content')
@@ -65,16 +63,15 @@
               _csrf :  $('meta[name="csrf-token"]').attr("content")
             } ,
             success: function(response){
-              console.log("RESPONSE :",response);
               if (response.status == true) {
                    window.location.href="/";
               }else{
-                  alert("cagaste");
+                 alert("Datos incorrectos , intente nuevamente..")
               }
 
             },
             error:function(error){
-              console.log(error);
+              console.log(error.message);
             }
         });
 
