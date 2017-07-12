@@ -37,5 +37,6 @@ $ `docker build -t backend .`
 $ `docker run -p 8181:8181 backend`
 
 **Para levantar BD**
+
 **arq-software/App**
 $ `vagrant up`
