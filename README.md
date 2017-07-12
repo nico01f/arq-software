@@ -27,11 +27,13 @@ Ejecutar estos comandos en los directorios:
 **arq-software/App/Negocio**
 
 $ `docker build -t frontend .`
+
 $ `docker run -p 8282:8282 frontend`
 
 **arq-software/App/Servicios**
 
 $ `docker build -t backend .`
+
 $ `docker run -p 8181:8181 backend`
 
 **Para levantar BD**
