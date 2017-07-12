@@ -65,8 +65,8 @@
                         <div class="col-md-3">
                             <div class="labels" for="">Prevision</div>
                             <select class="form-control" id="prevision">
-                                <option value="isapre">Isapre</option>
-                                <option value="fonasa">Fonasa</option>
+                                <option value="1">Isapre</option>
+                                <option value="2">Fonasa</option>
                             </select>
                         </div>
                     </div>

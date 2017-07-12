@@ -119,14 +119,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="form-group" style="margin-top:10px;">
-              <div class="col-md-offset-7 col-md-3">
-                <div class="checkbox">
-                  <h4><input type="checkbox" id="activa_receta" value="1" style="margin-top:1px">Desplegar Receta medica ?</h4>
-                </div>
+
+            <div class="col-md-offset-9 col-md-3">
+              <div id="hidden-btn" style="display:none;">
+                <a href="/ListadoFichas" class="btn btn-dark">Volver</a>
+                <a class="btn btn-primary" href="http://190.8.110.120/Epicrisis/pdfFicha?ficha={{$id_ficha}}" target="_blank">Ver Receta</a>
               </div>
-            </div>
-            <div class="col-md-2">
               <button role="button" class="btn btn-primary" id="save-btn" name="button">Guardar</button>
             </div>
 
@@ -148,7 +146,6 @@
           var diagnostico = $('#diagnostico').val();
           var procedimiento = $('#procedimiento').val();
           var medicamentos = $('#medicamentos').val();
-          var activa_receta = $('#activa_receta').val();
 
           $.post( base_url + 'Epicrisis/IngresarDiagnostico' , {
             ficha : id_ficha,
@@ -162,11 +159,11 @@
             console.log("RESPONSE : ",response);
             if (response.status == true) {
               alert(response.message);
-              if (activa_receta == 1 ) {
-                window.open(base_url + "Epicrisis/pdfFicha?ficha="+id_ficha,'_blank');
-                console.log("receta desplegada exitosamente");
-              }
-              window.location.href = "/ListadoFichas";
+              // window.open(base_url + "Epicrisis/pdfFicha?ficha="+id_ficha,'_blank');
+
+              $('#hidden-btn').show('fade');
+              $('#save-btn').hide('fade');
+
             }
 
           })

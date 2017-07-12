@@ -53,7 +53,7 @@ $(document).ready(function(){
           apellido_paterno : apellido_p,
           apellido_materno : apellido_m,
           area : area,
-          prevision : 1,
+          prevision : prevision,
           paciente_id: $('#paciente_id').val(),
           _csrf :  $('meta[name="csrf-token"]').attr("content")
         } ,
