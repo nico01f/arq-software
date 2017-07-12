@@ -24,7 +24,7 @@ class MantenedorController extends Controller
     if($request->has('rut') && empty(Paciente::where('rut', $request->input('rut'))->get()->toArray())){
       $validator = Validator::make($request->all(),
           [
-              'rut' => 'required|unique:paciente,rut',
+              'rut' => 'required|unique:paciente,rut|max:14',
               'nombre' => 'required',
               'apellido_paterno' => 'required',
               'apellido_materno' => 'required',
