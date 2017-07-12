@@ -1,15 +1,15 @@
-@extends('layouts.main')
+@extends('layouts.layout_login')
 
-@section('title', 'Recepcion Pacientes')
+@section('title', 'Página no encontrada')
 
 @section('content')
     <div class="x_panel">
         <div class="x_title">
-            <h1>Bienvenido a MedicalGest</h1>
+            <h1>Error 404</h1>
         </div>
         <div class="x_content">
             <p class="span12 text-center">
-              Servicio que apoya a la gestión de pacientes para los servicios de salud.
+              Página no encontrada!
             </p>
 
             <div class="row">
