@@ -17,7 +17,7 @@ return [
             'port' => '3306',
             'database' => 'epicrisis',
             'username' => 'root',
-            'password' => 'vagrant',
+            'password' => '3p1cr1s1s2017$',
             'unix_socket' => '',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
