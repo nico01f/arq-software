@@ -12,3 +12,28 @@
 
 Si alguien no sabe git, que diga para que le enseñemos cómo y no tengamos
 --merge conflicts--
+
+
+Para levantar backend, frontend, BD de MedicalGest
+--------------------------------------------------
+
+**Requisitos:**
+- docker
+- vagrant
+- VirtualBox
+
+Ejecutar estos comandos en los directorios:
+
+**arq-software/App/Negocio**
+
+$ `docker build -t frontend .`
+$ `docker run -p 8282:8282 frontend`
+
+**arq-software/App/Servicios**
+
+$ `docker build -t backend .`
+$ `docker run -p 8181:8181 backend`
+
+**Para levantar BD**
+**arq-software/App**
+$ `vagrant up`

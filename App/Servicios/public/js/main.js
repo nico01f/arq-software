@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('#rut_paciente').rut();
-  var base_url  = "http://190.8.110.120/";
+  var base_url  = "http://0.0.0.0:8181/";
   var $search = $(".typeahead");
   $.get(base_url + 'Epicrisis/JsonPaciente',{}, function(pacientes){
     $search.typeahead({
